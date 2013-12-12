@@ -50,7 +50,7 @@ public:
 	virtual void Equip( CBaseCombatCharacter *pOwner );
 	bool	Reload( void );
 
-	float	GetFireRate( void ) { return 0.075f; }	// 13.3hz
+	float	GetFireRate( void ) { return 0.01f; }	// 13.3hz // modded by jdr22
 	Activity	GetPrimaryAttackActivity( void );
 
 	virtual const Vector& GetBulletSpread( void )
@@ -192,6 +192,8 @@ void CWeaponSMG1::AddViewKick( void )
 //-----------------------------------------------------------------------------
 void CWeaponSMG1::SecondaryAttack( void )
 {
+	
+
 	// Only the player fires this way so we can cast
 	CBasePlayer *pPlayer = ToBasePlayer( GetOwner() );
 	

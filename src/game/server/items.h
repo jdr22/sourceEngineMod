@@ -21,8 +21,8 @@
 #define MAX_NORMAL_BATTERY	100
 
 // Ammo counts given by ammo items
-#define SIZE_AMMO_PISTOL			20
-#define SIZE_AMMO_PISTOL_LARGE		100
+#define SIZE_AMMO_PISTOL			999 //modded by jdr22 originally 20
+#define SIZE_AMMO_PISTOL_LARGE		999 //modded by jdr22 originally 100
 #define SIZE_AMMO_SMG1				45
 #define SIZE_AMMO_SMG1_LARGE		225
 #define SIZE_AMMO_AR2				20

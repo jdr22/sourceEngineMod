@@ -331,7 +331,7 @@ void CWeaponFrag::PrimaryAttack( void )
 //-----------------------------------------------------------------------------
 void CWeaponFrag::DecrementAmmo( CBaseCombatCharacter *pOwner )
 {
-	pOwner->RemoveAmmo( 1, m_iPrimaryAmmoType );
+	pOwner->RemoveAmmo( 0, m_iPrimaryAmmoType ); // changed by jdr22 originally ( 1, m_iPrimaryAmmoType )
 }
 
 //-----------------------------------------------------------------------------

@@ -3643,6 +3643,11 @@ void CallbackPhyscannonImpact( const CEffectData &data )
 
 		// Explosions at the impact point
 		FX_GaussExplosion( data.m_vOrigin, -dir, 0 );
+		// stuff added by jdr22
+		void FX_BloodSpray( const Vector &origin, const Vector &normal, float scale, unsigned char r, unsigned char g, unsigned char b, int flags );
+		float scale = random->RandomFloat( 16, 32 );
+		FX_BloodSpray( data.m_vOrigin, data.m_vNormal, scale, 255, 0, 0, 1+2+4 );
+		// end of stuff added
 
 		// Draw a beam
 		BeamInfo_t beamInfo;
@@ -3677,6 +3682,11 @@ void CallbackPhyscannonImpact( const CEffectData &data )
 	{
 		// Explosion at the starting point
 		FX_GaussExplosion( vecAttachment, dir, 0 );
+		// stuff added by jdr22
+		void FX_BloodSpray( const Vector &origin, const Vector &normal, float scale, unsigned char r, unsigned char g, unsigned char b, int flags );
+		float scale = random->RandomFloat( 16, 32 );
+		FX_BloodSpray( data.m_vOrigin, data.m_vNormal, scale, 255, 0, 0, 1+2+4 );
+		// end of stuff added
 	}
 }
 
