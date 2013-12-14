@@ -453,6 +453,30 @@ void CWeaponFrag::ThrowGrenade( CBasePlayer *pPlayer )
 		pGrenade->SetDamage( GetHL2MPWpnData().m_iPlayerDamage );
 		pGrenade->SetDamageRadius( GRENADE_DAMAGE_RADIUS );
 	}
+
+	//stuff added by jdr22
+	Vector vecThrow2;
+	pPlayer->GetVelocity( &vecThrow2, NULL );
+	vecThrow2 += vForward * 350 + Vector( 0, 0, 50 );
+	CBaseGrenade *pGrenade2 = Fraggrenade_Create( vecSrc, vec3_angle, vecThrow2, AngularImpulse(600,random->RandomInt(-1200,1200),0), pPlayer, GRENADE_TIMER, false );
+	if ( pGrenade2 )
+	{
+		if ( pPlayer && pPlayer->m_lifeState != LIFE_ALIVE )
+		{
+			pPlayer->GetVelocity( &vecThrow, NULL );
+
+			IPhysicsObject *pPhysicsObject = pGrenade2->VPhysicsGetObject();
+			if ( pPhysicsObject )
+			{
+				pPhysicsObject->SetVelocity( &vecThrow, NULL );
+			}
+		}
+		
+		pGrenade2->SetDamage( GetHL2MPWpnData().m_iPlayerDamage );
+		pGrenade2->SetDamageRadius( GRENADE_DAMAGE_RADIUS );
+	}
+
+	//end of stuff added by jdr22
 #endif
 
 	m_bRedraw = true;

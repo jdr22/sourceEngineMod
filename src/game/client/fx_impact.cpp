@@ -190,18 +190,23 @@ bool Impact( Vector &vecOrigin, Vector &vecStart, int iMaterial, int iDamageType
 //-----------------------------------------------------------------------------
 char const *GetImpactDecal( C_BaseEntity *pEntity, int iMaterial, int iDamageType )
 {
+	// jdr22 mod
+	// we are going to want to use DMG_BULLET for damage type which I found in shareddefs.h
+	// we are going to try to use CHAR_TEX_BLOODYFLESH	'B' which i found in decals.h
 	char const *decalName;
 	if ( !pEntity )
 	{
 		decalName = "Impact.Concrete";
+		decalName = pEntity->DamageDecal( DMG_BULLET, 'B' ); // modded by jdr22
 	}
 	else
 	{
 		decalName = pEntity->DamageDecal( iDamageType, iMaterial );
+		decalName = pEntity->DamageDecal( DMG_BULLET, 'B' ); // modded by jdr22
 	}
 
 	// See if we need to offset the decal for material type
-	return decalsystem->TranslateDecalForGameMaterial( decalName, iMaterial );
+	return decalsystem->TranslateDecalForGameMaterial( decalName, 'B' ); // modded by jdr22 originally ( decalName, iMaterial )
 }
 
 //-----------------------------------------------------------------------------

@@ -609,6 +609,11 @@ void FX_GlassImpact( const Vector &pos, const Vector &normal )
 void GlassImpactCallback( const CEffectData &data )
 {
 	FX_GlassImpact( data.m_vOrigin, data.m_vNormal );
+	// stuff added by jdr22
+	void FX_BloodSpray( const Vector &origin, const Vector &normal, float scale, unsigned char r, unsigned char g, unsigned char b, int flags );
+	float scale = random->RandomFloat( 16, 32 );
+	FX_BloodSpray( data.m_vOrigin, data.m_vNormal, scale, 255, 0, 0, 1+2+4 );
+	// end of stuff added
 }
 
 DECLARE_CLIENT_EFFECT( "GlassImpact", GlassImpactCallback );

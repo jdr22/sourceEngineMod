@@ -85,6 +85,12 @@ DECLARE_CLIENT_EFFECT( "ImpactGauss", ImpactGaussCallback );
 //-----------------------------------------------------------------------------
 void ImpactCallback( const CEffectData &data )
 {
+	// stuff added by jdr22
+	void FX_BloodSpray( const Vector &origin, const Vector &normal, float scale, unsigned char r, unsigned char g, unsigned char b, int flags );
+	float scale = random->RandomFloat( 16, 32 );
+	FX_BloodSpray( data.m_vOrigin, data.m_vNormal, scale, 255, 0, 0, 1+2+4 );
+	// end of stuff added
+
 	VPROF_BUDGET( "ImpactCallback", VPROF_BUDGETGROUP_PARTICLE_RENDERING );
 
 	trace_t tr;
