@@ -273,7 +273,7 @@ void CRecharge::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE use
 	CBasePlayer *pl = (CBasePlayer *) m_hActivator.Get();
 
 	// charge the player
-	int nMaxArmor = 100;
+	int nMaxArmor = 200; // modded by jdr22 originally 100
 	int nIncrementArmor = 1;
 	if ( HasSpawnFlags(	SF_CITADEL_RECHARGER ) )
 	{
@@ -283,14 +283,18 @@ void CRecharge::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE use
 		// Also give health for the citadel version.
 		if( pActivator->GetHealth() < pActivator->GetMaxHealth() )
 		{
-			pActivator->TakeHealth( 5, DMG_GENERIC );
+			pActivator->TakeHealth( 1, DMG_GENERIC ); // modded by jdr22 originally ( 5, DMG_GENERIC )
 		}
 	}
 
-	if (pl->ArmorValue() < nMaxArmor)
+	if (true) // modded by jdr22 originally (pl->ArmorValue() < nMaxArmor)
 	{
 		UpdateJuice( m_iJuice - nIncrementArmor );
-		pl->IncrementArmorValue( nIncrementArmor, nMaxArmor );
+		//pl->IncrementArmorValue( nIncrementArmor, nMaxArmor ); // commented out by jdr22
+		// start of mod by jdr22
+		pActivator->TakeHealth( 1, DMG_GENERIC ); // set health to 1
+		pl->SetArmorValue(0); // take away armor
+		// end of mod 
 	}
 
 	// Send the output.
@@ -643,7 +647,7 @@ void CNewRecharge::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE 
 	}
 
 	// Get our maximum armor value
-	int nMaxArmor = 100;
+	int nMaxArmor = 200; // modded by jdr22 originally 100
 	if ( HasSpawnFlags(	SF_CITADEL_RECHARGER ) )
 	{
 		nMaxArmor = sk_suitcharger_citadel_maxarmor.GetInt();
@@ -663,12 +667,15 @@ void CNewRecharge::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE 
 		// Also give health for the citadel version.
 		if ( pActivator->GetHealth() < pActivator->GetMaxHealth() && m_flNextCharge < gpGlobals->curtime )
 		{
-			pActivator->TakeHealth( 5, DMG_GENERIC );
+			pActivator->TakeHealth( 1, DMG_GENERIC ); // modded by jdr22 originally ( 5, DMG_GENERIC )
 		}
 	}
 
+
+	// original code commented out by jdr22
+	/*
 	// If we're over our limit, debounce our keys
-	if ( pPlayer->ArmorValue() >= nMaxArmor)
+	if ( pPlayer->ArmorValue() >= nMaxArmor) 
 	{
 		// Citadel charger must also be at max health
 		if ( !HasSpawnFlags(SF_CITADEL_RECHARGER) || ( HasSpawnFlags( SF_CITADEL_RECHARGER ) && pActivator->GetHealth() >= pActivator->GetMaxHealth() ) )
@@ -681,6 +688,7 @@ void CNewRecharge::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE 
 			return;
 		}
 	}
+	*/ // end of original code
 
 	// This is bumped out if used within the time period
 	SetNextThink( gpGlobals->curtime + CHARGE_RATE );
@@ -709,10 +717,14 @@ void CNewRecharge::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE 
 	}
 
 	// Give armor if we need it
-	if ( pPlayer->ArmorValue() < nMaxArmor )
+	if (true) // modded by jdr22 originally ( pPlayer->ArmorValue() < nMaxArmor )
 	{
 		UpdateJuice( m_iJuice - nIncrementArmor );
-		pPlayer->IncrementArmorValue( nIncrementArmor, nMaxArmor );
+		//pPlayer->IncrementArmorValue( nIncrementArmor, nMaxArmor ); // original code comment out by jdr22
+		// start of mod by jdr22
+		pActivator->TakeHealth( 1, DMG_GENERIC ); // set health to 1
+		pPlayer->SetArmorValue(0); // take away armor
+		// end of mod 
 	}
 
 	// Send the output.

@@ -702,6 +702,8 @@ void CNewWallHealth::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYP
 		return;
 	}
 
+	// original code commented out by jdr22
+	/*
 	if( pActivator->GetHealth() >= pActivator->GetMaxHealth() )
 	{
 		if( pPlayer )
@@ -715,6 +717,7 @@ void CNewWallHealth::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYP
 		EmitSound( "WallHealth.Deny" );
 		return;
 	}
+	*/ // end of original code
 
 	SetNextThink( gpGlobals->curtime + CHARGE_RATE );
 	SetThink( &CNewWallHealth::Off );
