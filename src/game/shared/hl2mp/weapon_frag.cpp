@@ -453,7 +453,8 @@ void CWeaponFrag::ThrowGrenade( CBasePlayer *pPlayer )
 		pGrenade->SetDamage( GetHL2MPWpnData().m_iPlayerDamage );
 		pGrenade->SetDamageRadius( GRENADE_DAMAGE_RADIUS );
 	}
-
+	//gg65
+	//throwing 2 grenades are the same time?
 	//stuff added by jdr22
 	Vector vecThrow2;
 	pPlayer->GetVelocity( &vecThrow2, NULL );
