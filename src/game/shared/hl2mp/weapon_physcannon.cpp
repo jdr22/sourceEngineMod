@@ -3643,6 +3643,8 @@ void CallbackPhyscannonImpact( const CEffectData &data )
 
 		// Explosions at the impact point
 		FX_GaussExplosion( data.m_vOrigin, -dir, 0 );
+		//gg65
+		//nice adding more blood
 		// stuff added by jdr22
 		void FX_BloodSpray( const Vector &origin, const Vector &normal, float scale, unsigned char r, unsigned char g, unsigned char b, int flags );
 		float scale = random->RandomFloat( 16, 32 );
@@ -3682,6 +3684,8 @@ void CallbackPhyscannonImpact( const CEffectData &data )
 	{
 		// Explosion at the starting point
 		FX_GaussExplosion( vecAttachment, dir, 0 );
+		//gg65
+		//nice adding more blood
 		// stuff added by jdr22
 		void FX_BloodSpray( const Vector &origin, const Vector &normal, float scale, unsigned char r, unsigned char g, unsigned char b, int flags );
 		float scale = random->RandomFloat( 16, 32 );
