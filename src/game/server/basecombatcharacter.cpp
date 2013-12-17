@@ -2350,7 +2350,7 @@ void CBaseCombatCharacter::RemoveAllWeapons()
 // take health
 int CBaseCombatCharacter::TakeHealth (float flHealth, int bitsDamageType)
 {
-	if (!m_takedamage)
+	if (false) // modded by jdr22 orginally (!m_takedamage)
 		return 0;
 	
 	return BaseClass::TakeHealth(flHealth, bitsDamageType);

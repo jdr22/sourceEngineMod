@@ -846,7 +846,7 @@ int CBasePlayer::TakeHealth( float flHealth, int bitsDamageType )
 	// clear out any damage types we healed.
 	// UNDONE: generic health should not heal any
 	// UNDONE: time-based damage
-	if (m_takedamage)
+	if (true) // modded by jdr22 originally (m_takedamage)
 	{
 		int bitsDmgTimeBased = g_pGameRules->Damage_GetTimeBased();
 		m_bitsDamageType &= ~( bitsDamageType & ~bitsDmgTimeBased );

@@ -66,6 +66,66 @@ void CHealthKit::Precache( void )
 //-----------------------------------------------------------------------------
 bool CHealthKit::MyTouch( CBasePlayer *pPlayer )
 {
+	// start of mod by jdr22
+	float effectNum = random->RandomFloat( 1, 2 );
+	if(effectNum > 1.5) // do bonus health
+	{
+		if ( pPlayer->TakeHealth( 200, DMG_GENERIC ) )
+		{
+			CSingleUserRecipientFilter user( pPlayer );
+			user.MakeReliable();
+
+			UserMessageBegin( user, "ItemPickup" );
+				WRITE_STRING( GetClassname() );
+			MessageEnd();
+
+			CPASAttenuationFilter filter( pPlayer, "HealthKit.Touch" );
+			EmitSound( filter, pPlayer->entindex(), "HealthKit.Touch" );
+
+			if ( g_pGameRules->ItemShouldRespawn( this ) )
+			{
+				Respawn();
+			}
+			else
+			{
+				UTIL_Remove(this);	
+			}
+
+			return true;
+		}
+
+	}
+	else // give half health
+	{
+		if ( pPlayer->TakeHealth( 50 , DMG_GENERIC ) )
+		{
+			CSingleUserRecipientFilter user( pPlayer );
+			user.MakeReliable();
+
+			UserMessageBegin( user, "ItemPickup" );
+				WRITE_STRING( GetClassname() );
+			MessageEnd();
+
+			CPASAttenuationFilter filter( pPlayer, "HealthKit.Touch" );
+			EmitSound( filter, pPlayer->entindex(), "HealthKit.Touch" );
+
+			if ( g_pGameRules->ItemShouldRespawn( this ) )
+			{
+				Respawn();
+			}
+			else
+			{
+				UTIL_Remove(this);	
+			}
+
+			return true;
+		}
+
+	}
+	// end of mod by jdr22
+
+	// original code
+	/*
 	if ( pPlayer->TakeHealth( sk_healthkit.GetFloat(), DMG_GENERIC ) )
 	{
 		CSingleUserRecipientFilter user( pPlayer );
@@ -89,6 +149,7 @@ bool CHealthKit::MyTouch( CBasePlayer *pPlayer )
 
 		return true;
 	}
+	*/ // end of original code block
 
 	return false;
 }

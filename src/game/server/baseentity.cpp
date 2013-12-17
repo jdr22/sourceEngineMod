@@ -1349,23 +1349,27 @@ void CBaseEntity::Activate( void )
 // Returns the amount of health actually taken.
 int CBaseEntity::TakeHealth( float flHealth, int bitsDamageType )
 {
-	if ( !edict() || m_takedamage < DAMAGE_YES )
+	if ( !edict() ) // modded by jdr22 orginally ( !edict() || m_takedamage < DAMAGE_YES )
 		return 0;
 
 	int iMax = GetMaxHealth();
 
-// heal
-	if ( m_iHealth >= iMax )
+	// heal
+	if ( false ) // modded by jdr22 orginally ( m_iHealth >= iMax )
 		return 0;
 
 	const int oldHealth = m_iHealth;
 
-	m_iHealth += flHealth;
+	// original code commented out by jdr22
+	/*m_iHealth += flHealth; 
 
 	if (m_iHealth > iMax)
 		m_iHealth = iMax;
+	*/ // end of original code
 
-	return m_iHealth - oldHealth;
+	m_iHealth = flHealth;
+
+	return 1; // modded by jdr22 originally m_iHealth - oldHealth
 }
 
 // inflict damage on this entity.  bitsDamageType indicates type of damage inflicted, ie: DMG_CRUSH
