@@ -50,7 +50,7 @@ public:
 	virtual void Equip( CBaseCombatCharacter *pOwner );
 	bool	Reload( void );
 
-	float	GetFireRate( void ) { return 0.01f; }	// 13.3hz // modded by jdr22
+	float	GetFireRate( void ) { return 0.01f; }	// 13.3hz // modded by jdr22 //gg65 too fast
 	Activity	GetPrimaryAttackActivity( void );
 
 	virtual const Vector& GetBulletSpread( void )
