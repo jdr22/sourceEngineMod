@@ -390,6 +390,8 @@ void CWallHealth::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE u
 		return;
 	}
 
+	// orginal code comment out by jdr22
+	/*
 	if( pActivator->GetHealth() >= pActivator->GetMaxHealth() )
 	{
 		if( pPlayer )
@@ -401,7 +403,7 @@ void CWallHealth::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE u
 		m_iCaps = FCAP_IMPULSE_USE;
 
 		return;
-	}
+	}*/
 
 	SetNextThink( gpGlobals->curtime + 0.25f );
 	SetThink(&CWallHealth::Off);

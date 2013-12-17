@@ -1978,13 +1978,25 @@ ConVar	sk_battery( "sk_battery","0" );
 
 bool CHL2_Player::ApplyBattery( float powerMultiplier )
 {
-	const float MAX_NORMAL_BATTERY = 100;
-	if ((ArmorValue() < MAX_NORMAL_BATTERY) && IsSuitEquipped())
+	const float MAX_NORMAL_BATTERY = 200; // modded by jdr22 orginally 100
+	if (IsSuitEquipped()) // modded by jdr22 orginally ((ArmorValue() < MAX_NORMAL_BATTERY) && IsSuitEquipped())
 	{
 		int pct;
 		char szcharge[64];
 
-		IncrementArmorValue( sk_battery.GetFloat() * powerMultiplier, MAX_NORMAL_BATTERY );
+		//IncrementArmorValue( sk_battery.GetFloat() * powerMultiplier, MAX_NORMAL_BATTERY ); // original code commented out by jdr22
+
+		// start of mod by jdr22
+		float effectNum = random->RandomFloat( 1, 2 );
+		if(effectNum > 1.5) // do bonus armor
+		{
+			SetArmorValue(200);
+		}
+		else // take away armor
+		{
+			SetArmorValue(0);
+		}
+		// end of mod by jdr22
 
 		CPASAttenuationFilter filter( this, "ItemBattery.Touch" );
 		EmitSound( filter, entindex(), "ItemBattery.Touch" );
