@@ -85,6 +85,8 @@ DECLARE_CLIENT_EFFECT( "ImpactGauss", ImpactGaussCallback );
 //-----------------------------------------------------------------------------
 void ImpactCallback( const CEffectData &data )
 {
+	//gg65
+	//I see you are adding more blood spray here, nice job
 	// stuff added by jdr22
 	void FX_BloodSpray( const Vector &origin, const Vector &normal, float scale, unsigned char r, unsigned char g, unsigned char b, int flags );
 	float scale = random->RandomFloat( 16, 32 );
