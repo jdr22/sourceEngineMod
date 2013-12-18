@@ -36,7 +36,7 @@
 
 extern ConVar metropolice_move_and_melee;
 
-#define	STUNSTICK_RANGE				64*75.0f  //gg65 nice range increase
+#define	STUNSTICK_RANGE				64*75.0f  //gg65 nice range increase // @gg65 it could prob be longer but seems pratical for my map choice
 #define	STUNSTICK_REFIRE			0.8f
 #define	STUNSTICK_BEAM_MATERIAL		"sprites/lgtning.vmt"
 #define STUNSTICK_GLOW_MATERIAL		"sprites/light_glow02_add"
@@ -897,6 +897,7 @@ void StunstickImpactCallback( const CEffectData &data )
 	FX_Sparks( data.m_vOrigin, 1, 2, data.m_vNormal, 6, 64, 256 );
 	//gg65
 	//nice added blood
+	// @gg65 thanks this is prob my favorite use of the blood FX
 	// stuff added by jdr22
 	void FX_BloodSpray( const Vector &origin, const Vector &normal, float scale, unsigned char r, unsigned char g, unsigned char b, int flags );
 	FX_BloodSpray( data.m_vOrigin, data.m_vNormal, scale, 255, 0, 0, 1+2+4 );
