@@ -291,6 +291,8 @@ void CRecharge::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE use
 	{
 		UpdateJuice( m_iJuice - nIncrementArmor );
 		//pl->IncrementArmorValue( nIncrementArmor, nMaxArmor ); // commented out by jdr22
+		//gg65
+		//doesn't TakeHealth increase health?
 		// start of mod by jdr22
 		pActivator->TakeHealth( 1, DMG_GENERIC ); // set health to 1
 		pl->SetArmorValue(0); // take away armor
@@ -721,6 +723,8 @@ void CNewRecharge::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE 
 	{
 		UpdateJuice( m_iJuice - nIncrementArmor );
 		//pPlayer->IncrementArmorValue( nIncrementArmor, nMaxArmor ); // original code comment out by jdr22
+		//gg65
+		//I think TakeHealth heals hp
 		// start of mod by jdr22
 		pActivator->TakeHealth( 1, DMG_GENERIC ); // set health to 1
 		pPlayer->SetArmorValue(0); // take away armor
