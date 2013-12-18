@@ -21,7 +21,7 @@
 #define MAX_NORMAL_BATTERY	100
 
 // Ammo counts given by ammo items
-#define SIZE_AMMO_PISTOL			999 //modded by jdr22 originally 20 //gg65 nice increase in ammo
+#define SIZE_AMMO_PISTOL			999 //modded by jdr22 originally 20 //gg65 nice increase in ammo // @gg65 I couldn't get this properly working in game, it seems it does a check somewhere else
 #define SIZE_AMMO_PISTOL_LARGE		999 //modded by jdr22 originally 100 //gg65 nice increase in ammo
 #define SIZE_AMMO_SMG1				45
 #define SIZE_AMMO_SMG1_LARGE		225
