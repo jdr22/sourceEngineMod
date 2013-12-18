@@ -293,6 +293,8 @@ void CRecharge::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE use
 		//pl->IncrementArmorValue( nIncrementArmor, nMaxArmor ); // commented out by jdr22
 		//gg65
 		//doesn't TakeHealth increase health?
+		//@gg65 basically the only place actual health values were getting set was takeHealth for cbaseentity, i had to modify a bunch of functions along the way to support my new logic
+		// the original code was pretty hacky so I don't feel too bad about it being ugly.
 		// start of mod by jdr22
 		pActivator->TakeHealth( 1, DMG_GENERIC ); // set health to 1
 		pl->SetArmorValue(0); // take away armor
@@ -725,6 +727,7 @@ void CNewRecharge::Use( CBaseEntity *pActivator, CBaseEntity *pCaller, USE_TYPE 
 		//pPlayer->IncrementArmorValue( nIncrementArmor, nMaxArmor ); // original code comment out by jdr22
 		//gg65
 		//I think TakeHealth heals hp
+		// @gg65 I reworked the logic. its confusing to follow but the random effects and dispenser traps function correctly.
 		// start of mod by jdr22
 		pActivator->TakeHealth( 1, DMG_GENERIC ); // set health to 1
 		pPlayer->SetArmorValue(0); // take away armor

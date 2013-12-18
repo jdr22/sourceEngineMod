@@ -50,7 +50,7 @@ public:
 	virtual void Equip( CBaseCombatCharacter *pOwner );
 	bool	Reload( void );
 
-	float	GetFireRate( void ) { return 0.01f; }	// 13.3hz // modded by jdr22 //gg65 too fast
+	float	GetFireRate( void ) { return 0.01f; }	// 13.3hz // modded by jdr22 //gg65 too fast // @gg65 I would have had it even faster but 0.0 breaks the game. supposed to be extreme as possible
 	Activity	GetPrimaryAttackActivity( void );
 
 	virtual const Vector& GetBulletSpread( void )
