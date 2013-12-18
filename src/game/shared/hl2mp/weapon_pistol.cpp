@@ -16,7 +16,7 @@
 
 #include "weapon_hl2mpbasehlmpcombatweapon.h"
 
-#define	PISTOL_FASTEST_REFIRE_TIME		0.0f // modded by jdr22 //gg65 pistol shoots too fast
+#define	PISTOL_FASTEST_REFIRE_TIME		0.0f // modded by jdr22 //gg65 pistol shoots too fast // @gg65 its supposed to be extreme and not just fast, plus I think its balanced by magazine size
 #define	PISTOL_FASTEST_DRY_REFIRE_TIME	0.2f
 
 #define	PISTOL_ACCURACY_SHOT_PENALTY_TIME		0.2f	// Applied amount of time each shot adds to the time we must recover from
@@ -82,7 +82,7 @@ public:
 
 	virtual float GetFireRate( void ) 
 	{
-		return 0.0f; //mod by jdr22 //gg65 shoots too fast
+		return 0.0f; //mod by jdr22 //gg65 shoots too fast // @gg65 its supposed to be extreme and not just fast, plus I think its balanced by magazine size and relative damage
 	}
 	
 #ifndef CLIENT_DLL
