@@ -455,6 +455,7 @@ void CWeaponFrag::ThrowGrenade( CBasePlayer *pPlayer )
 	}
 	//gg65
 	//throwing 2 grenades are the same time?
+	// @gg65 yeah, primary throw will throw one and a "lob" one at the same time so you get 2 grenades for the price of one
 	//stuff added by jdr22
 	Vector vecThrow2;
 	pPlayer->GetVelocity( &vecThrow2, NULL );
