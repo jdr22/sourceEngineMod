@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>EGPDM MOTD</title>
+You are playing Extreme Powerup Gore Deathmatch<br>
+Visit the official EPGDM web site @ https://github.com/jdr22/sourceEngineMod.git<br>
+Changelog:<br>
+-Added AK-47 (for assignment)<br>
+-Added extremely slow RPG speed (for assignment)<br>
+-Removed startup video<br>
+-Added custom Message Of The Day that you are currently reading.<br>
+-Added gore hits to stunstick, extreme range, and weapon script mods<br>
+-Added gore hits to pistol, extreme auto-fire rate and weapon script mods<br>
+-Added gore hits to SMG, extreme fire rate, and weapon script mods<br>
+-Added gore hits to physcannon and weapon script mods<br>
+-Added gore hits to .357, increased percieved recoil, and weapon script mods<br>
+-Added gore hits to shotgun, increased percieved recoil, increased pellets, and weapon script mods<br>
+-Endless grenades, throw two on primary attack, and weapon script mods<br>
+-Weapons leave behind green blood instead of bulletholes<br>
+-Glass and some other objects do additional blood FX when hit<br>
+-Health kits give random effect. Either 2x default health or 0.5x default health<br>
+-Wall mounted health dispenser is trap, will set player health to 1<br>
+-Batteries give random effect. Either 2x default armor or set player 0 armor<br>
+-Wall mounted armor dispenser is trap, will set player health to 1 and armor to 0<br>
+-Citadel recharge station is trap, will set player health to 1 and armor to 0<br>
+</body>
+</html>
